@@ -8,6 +8,11 @@ const fetchTeddies = async() => {
         res.json());
 };
 
+//fonction clickOnProductHandle
+function clickOnProductHandle(productID) {
+    window.location.href = "./produit.html?productId="+productID;
+}
+
 const showTeddies = async() => {
     await fetchTeddies();
 
@@ -21,7 +26,6 @@ const showTeddies = async() => {
                         <img class="picture-product" src="${teddy.imageUrl}" />
                         <div class="info-product">
                             <p class="description-product">${teddy.description}</p>
-                            <h3 class="color-product">${teddy.colors}</h3>
                             <h2 class="price-product">${teddy.price /100} €</h2>
                         </div>
                     </li>
@@ -32,8 +36,3 @@ const showTeddies = async() => {
 
 showTeddies();
 
-function clickOnProductHandle(productID)
-{
-    console.log(productID);
-    window.location.href = "./product.html?productId="+productID;
-}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Orinoco</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    
+</head>
+
+<body>
+    <div class="container-menu">
+        <ul>
+            <li><a href="./index.html">Acceuil</a></li>
+        </ul>
+    </div>
+
+    <h1>Récapitulatif panier</h1>
+
+    <div class="container-shop-table">
+        <h2 class="product">Produit</h2>
+        <h2 class="color">Couleur</h2>
+        <h2 class="price">Prix</h2>
+    </div>
+
+    <div id="container-product-panier">
+    </div>
+
+    <div id="container-total">
+        <h2 id=price></h2>
+    </div>
+
+    <div class="order-form">
+        <h2>Formulaire à remplir pour finaliser la commande</h2>
+        <div method="POST">
+            <label for="firstName">Prénom :</label>
+            <input type="text" id="firstName" name="firstName" value="celine" required>
+
+            <label for="lastName">Nom :</label>
+            <input type="text" id="lastName" name="lastName" value="durand" required>
+
+            <label for="adress">Adresse :</label>
+            <textarea id="adress" name="adress" required>80 rue de la croix</textarea>
+
+            <label for="city">Ville :</label>
+            <input type="text" id="city" name="city" value="angers" required>
+
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" value="celinedurand@gmail.com" required>
+
+            <button id="sendForm" name="sendForm">Envoyer</button>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="./js/panier.js" defer></script>
+</html>
