@@ -31,12 +31,12 @@ const showTeddy = async() => {
                             </form>
                             <li>Prix : <span>${teddy.price /100} €</span></li>
                         </ul>
-                        <button class="popup" id="btn-send" onclick="popUpButton()" type="submit" name="btn-send">
+                        <button class="popup" id="btn-send" type="submit" name="btn-send">
                             Ajouter au panier
                         </button> 
                         <div id="windowPopup-container">
-                                <div id="myPopUp"> ${teddy.name} a bien été ajouté au panier.
-                                <button onclick="popUpButtonClose()" class="close">x</button></div>
+                            <div id="myPopUp"> ${teddy.name} a bien été ajouté au panier.
+                            <button class="close" id="close">x</button></div>
                         </div>
                     </div>
                 </div>
@@ -82,28 +82,28 @@ const showTeddy = async() => {
             localStorage.setItem("product", JSON.stringify(productLocalStorage));
         }
 
-        //fonction popupwindow
-        function popUpButton() {
-            document.getElementById('myPopUp').classList.add("show");
+        //vérification présence de produits dans le local storage
+        if(productLocalStorage){
+            additionLocalStorage();
         }
-        
-        //fonction popupwindowclose
-        function popUpButtonClose() {
-            document.getElementById('myPopUp').classList.remove("show");
+        else{
+            productLocalStorage = [];
+            additionLocalStorage();
         }
 
-        //vérification présence de produits dans le local storage
-            if(productLocalStorage){
-                additionLocalStorage();
-                popUpButton();
-                popUpButtonClose();
-            }
-            else{
-                productLocalStorage = [];
-                additionLocalStorage();
-                popUpButton();
-                popUpButtonClose();
-            }
+        //popup
+        const popUpShow = document.getElementById("windowPopup-container");
+        popUpShow.classList.add("active");
+    })
+
+    //gestion popUpClose
+    const popUpHide = document.getElementById('close');
+    const popUpShow = document.getElementById("windowPopup-container");
+
+    popUpHide.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        popUpShow.classList.remove("active");
     })
 };
 

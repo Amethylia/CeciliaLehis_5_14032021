@@ -33,18 +33,23 @@
     <div class="order-form">
         <h2>Formulaire à remplir pour finaliser la commande</h2>
         <div method="POST">
+            <span id="EmptyFirstName" class="EmptyField"></span>
             <label for="firstName">Prénom :</label>
             <input type="text" id="firstName" name="firstName" value="celine" required>
 
+            <span id="EmptyLastName" class="EmptyField"></span>
             <label for="lastName">Nom :</label>
             <input type="text" id="lastName" name="lastName" value="durand" required>
 
-            <label for="adress">Adresse :</label>
-            <textarea id="adress" name="adress" required>80 rue de la croix</textarea>
+            <span id="EmptyAddress" class="EmptyField"></span>
+            <label for="address">Adresse :</label>
+            <textarea id="address" name="address" required>80 rue de la croix</textarea>
 
+            <span id="EmptyCity" class="EmptyField"></span>
             <label for="city">Ville :</label>
             <input type="text" id="city" name="city" value="angers" required>
 
+            <span id="EmptyEmail" class="EmptyField"></span>
             <label for="email">Email :</label>
             <input type="text" id="email" name="email" value="celinedurand@gmail.com" required>
 

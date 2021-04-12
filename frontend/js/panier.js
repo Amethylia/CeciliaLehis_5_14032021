@@ -2,48 +2,47 @@
 let productLocalStorage = JSON.parse(localStorage.getItem("product"));
 
 //affichage produits
-    const positionElement = document.getElementById('container-product-panier');
+const positionElement = document.getElementById('container-product-panier');
 
-    //vérification présence articles dans le panier
-    if(productLocalStorage === null) {
-        const emptyPanier = `
-        <div class="container-empty-panier">
-            <div>Le panier est vide.</div>
-        </div>
-        `;
-        positionElement.innerHTML = emptyPanier;
-    } else {
-        let productPanierStructure = [];
-        let total = 0;
-        for(var i = 0; i < productLocalStorage.length ; i++) {
+//vérification présence articles dans le panier
+if(productLocalStorage === null) {
+    const emptyPanier = `
+    <div class="container-empty-panier">
+        <div>Le panier est vide.</div>
+    </div>
+    `;
+    positionElement.innerHTML = emptyPanier;
+} else {
+    let productPanierStructure = [];
+    let total = 0;
+    for(var i = 0; i < productLocalStorage.length ; i++) {
 
-            productPanierStructure = productPanierStructure + `
-            <div id="container-product-panier">
-                <div class="product-panier">
-                    <h2 class="product-name">${productLocalStorage[i].Nom}</h2>
-                    <h2 class="product-color">${productLocalStorage[i].Couleur}</h2>
-                    <h2 class="product-price" id="product-price">${productLocalStorage[i].Prix}</h2>
-                </div>
+        productPanierStructure = productPanierStructure + `
+        <div id="container-product-panier">
+            <div class="product-panier">
+                <h2 class="product-name">${productLocalStorage[i].Nom}</h2>
+                <h2 class="product-color">${productLocalStorage[i].Couleur}</h2>
+                <h2 class="product-price" id="product-price">${productLocalStorage[i].Prix}</h2>
             </div>
+        </div>
 
-            `;
-            
-            //total panier
-            var prix = productLocalStorage[i].Prix;
-            prix = prix.replace('€', '');
-            total += Number(prix);
-
-            if(i == productLocalStorage.length - 1){
-                positionElement.innerHTML = productPanierStructure;
-            }
-        }
+        `;
         
-        //affichage total panier
-        document.getElementById("price").innerHTML = "Total : " + total + ' €';
+        //total panier
+        var prix = productLocalStorage[i].Prix;
+        prix = prix.replace('€', '');
+        total += Number(prix);
+
+        if(i == productLocalStorage.length - 1){
+            positionElement.innerHTML = productPanierStructure;
+        }
     }
+    
+    //affichage total panier
+    document.getElementById("price").innerHTML = "Total : " + total + ' €';
+}
 
 //gestion du formulaire
-//afficher le formulaire
 const showForm = () => {
 
     const btnSendForm = document.getElementById('sendForm');
@@ -59,37 +58,29 @@ const showForm = () => {
         //récupération des valeurs du formulaire
         let firstNameForm = document.getElementById('firstName').value;
         let lastNameForm  = document.getElementById('lastName').value;
-        let adressForm = document.getElementById('adress').value;
+        let addressForm = document.getElementById('address').value;
         let cityForm = document.getElementById('city').value;
         let emailForm = document.getElementById('email').value;
 
         postData.contact = {
-            fisrtName: firstNameForm,
+            firstName: firstNameForm,
             lastName: lastNameForm,
-            adress: adressForm,
+            address: addressForm,
             city: cityForm,
             email: emailForm
-        };
+        }
     
-        //for (element of productLocalStorage) {
-            //postData.products.push(element.Teddy_id);
-            
-          //}
-          postData.products = [
-              "5be9c8541c9d440000665243",
-              "5be9c8541c9d440000665243",
-              "5be9c8541c9d440000665243"
-          ]
-          console.log(postData.products)
-          console.log(postData)
-
+        for (element of productLocalStorage) {
+            postData.products.push(element.Teddy_id);
+          }
 
         //début validation avant l'envoi des données au serveur
+        //regEx
         const regExNameCity = (value) => {
             return /^[A-Za-z]{3,10}$/.test(value);
         }
 
-        const regExAdress = (value) => {
+        const regExAddress = (value) => {
             return /^[0-9A-Za-z\s]{5,40}$/.test(value);
         }
 
@@ -97,12 +88,19 @@ const showForm = () => {
             return /^[\w\.-]+@[\w\.-]+\.\w{2,4}$/.test(value);
         }
 
+        //fonction avertissement
+        function dataEmptyField(getElementById) {
+            document.getElementById(`${getElementById}`).textContent = "Champ obligatoire !";
+        };
+
+        //fonction control
         //prénom
         function firstNameControl() {
             const firstName = firstNameForm;
             if (regExNameCity(firstName)) {
                 return true;
             } else {
+                dataEmptyField("EmptyFirstName");
                 return false;
             }
         };
@@ -113,16 +111,18 @@ const showForm = () => {
             if (regExNameCity(lastName)) {
                 return true;
             } else {
+                dataEmptyField("EmptyLastName");
                 return false;
             }
         };
 
         //adresse
-        function adressControl() {
-            const adress = adressForm;
-            if (regExAdress(adress)) {
+        function addressControl() {
+            const address = addressForm;
+            if (regExAddress(address)) {
                 return true;
             } else {
+                dataEmptyField("EmptyAddress");
                 return false;
             }
         };
@@ -133,6 +133,7 @@ const showForm = () => {
             if (regExNameCity(city)) {
                 return true;
             } else {
+                dataEmptyField("EmptyCity");
                 return false;
             }
         };
@@ -143,11 +144,12 @@ const showForm = () => {
             if (regExEmail(email)) {
                 return true;
             } else {
+                dataEmptyField("EmptyEmail");
                 return false;
             }
         };
 
-        if (firstNameControl() && lastNameControl() && adressControl() && cityControl() && emailControl()) {
+        if (firstNameControl() && lastNameControl() && addressControl() && cityControl() && emailControl()) {
             //mettre l'object "postData.contact" dans le local storage
             localStorage.setItem("contact", JSON.stringify(postData.contact));
         } else {
@@ -163,6 +165,35 @@ const showForm = () => {
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.log(err));
+
+        localStorage.setItem("postData", JSON.stringify(postData));
+
+        //envoyer "orderPriceNumber" = prix total + orderId au localstorage
+        const orderPriceNumber = {
+            totalPrice: "",
+            orderId: ""
+        }
+
+        let localStorageOrder = JSON.parse(localStorage.getItem("order"));
+    
+        const additionLocalStorageOrder = () => {
+            localStorageOrder.push(orderPriceNumber);
+            localStorage.setItem("order", JSON.stringify(localStorageOrder));
+        }
+        
+        if(localStorageOrder){
+            additionLocalStorageOrder();
+        }
+        else{
+            localStorageOrder = [];
+            additionLocalStorageOrder();
+        }
+    
+        //redirection selon l'id de la commande
+        // window.location.href = "./commande.html?orderId="+"orderId";
+
+        //nettoyage du localstorage
+        //localStorage.clear();
     })
 };
 
