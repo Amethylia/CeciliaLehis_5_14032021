@@ -19,24 +19,28 @@ const showTeddy = async() => {
     await fetchTeddy();
     results.innerHTML = 
                 `
-                <div class="page-product">
-                        <img class="picture-product" src="${teddy.imageUrl}" />
-                    <div class="product">
-                        <ul>
-                            <li>Nom : <span>${teddy.name}</span></li>
-                            <li>Description : <span>${teddy.description}</span></li>
-                            <form>
-                                <label for="color-product"></label>
-                                <select name="color-product" id="color-product"></select>
-                            </form>
-                            <li>Prix : <span>${teddy.price /100} €</span></li>
-                        </ul>
-                        <button class="popup" id="btn-send" type="submit" name="btn-send">
-                            Ajouter au panier
-                        </button> 
-                        <div id="windowPopup-container">
-                            <div id="myPopUp"> ${teddy.name} a bien été ajouté au panier.
-                            <button class="close" id="close">x</button></div>
+                <div class="container page-product">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-8 p-5">
+                            <img class="picture-product" src="${teddy.imageUrl}" />
+                        </div>
+                        <div class="col-12 col-lg-4 px-5 pb-5 p-lg-5 product">
+                                <h2 class="title">${teddy.name}</h2>
+                            <p class="description">${teddy.description}</p>
+                            <div class="wrapper-colors-price">
+                                <div class="price-product">${teddy.price /100} €</div>
+                                <form class="colors">
+                                    <label for="color-product"></label>
+                                    <select name="color-product" id="color-product"></select>
+                                </form>   
+                            </div>
+                            <button class="button popup" id="btn-send" type="submit" name="btn-send">
+                                Ajouter au panier
+                            </button>
+                            <div id="windowPopup-container">
+                                <div id="myPopUp"> ${teddy.name} a bien été ajouté au panier.
+                                <button class="close" id="close">x</button></div>
+                            </div>
                         </div>
                     </div>
                 </div>

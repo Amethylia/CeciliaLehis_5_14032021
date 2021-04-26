@@ -1,6 +1,8 @@
+/* variables */
+/* colors */
 /* base */
 /* typo */
-@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:wght@400;500;600;700&display=swap");
 h1,
 h3 {
   font-family: "Gloria Hallelujah", cursive;
@@ -14,16 +16,83 @@ h2 {
 p {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 17px;
+}
+
+/* button */
+.button {
+  font-family: "Raleway", sans-serif;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: transparent;
+  border: 2px solid #B67090;
+  color: #B67090;
+}
+.button:hover {
+  background-color: #B67090;
+  color: #ffffff;
+}
+
+/* header */
+/* masthead */
+.masthead {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(112px + 72px);
+  padding-bottom: 112px;
+  background-color: #B67090;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+@media (min-width: 992px) {
+  .masthead {
+    padding-top: calc(160px + 55px);
+    padding-bottom: 160px;
+  }
+}
+.masthead .masthead-content {
+  z-index: 1;
+  position: relative;
+}
+.masthead .masthead-content .container .title {
+  font-size: 75px;
+  font-weight: 500;
 }
 @media (max-width: 576px) {
-  p {
-    font-size: 16px;
+  .masthead .masthead-content .container .title {
+    font-size: 50px;
+  }
+}
+.masthead .masthead-content .container .sub-title {
+  font-size: 40px;
+  font-weight: 400;
+}
+@media (max-width: 576px) {
+  .masthead .masthead-content .container .sub-title {
+    font-size: 30px;
+  }
+}
+.masthead .scroll {
+  transform: translateY(120px);
+}
+@media (max-width: 992px) {
+  .masthead .scroll {
+    transform: translateY(80px);
+  }
+}
+.masthead .scroll i {
+  font-size: 35px;
+  color: #ffffff;
+}
+@media (max-width: 576px) {
+  .masthead .scroll i {
+    font-size: 30px;
   }
 }
 
-/* variables */
-/* colors */
 /* header */
 .navbar-custom {
   padding-top: 16px;
@@ -58,6 +127,11 @@ p {
   font-size: 35px;
   color: #B67090;
 }
+@media (max-width: 576px) {
+  .navbar-custom .navbar-toggler i {
+    font-size: 30px;
+  }
+}
 .navbar-custom .navbar-collapse {
   flex-grow: 0;
 }
@@ -73,6 +147,7 @@ p {
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #000000;
+  margin-left: 5px;
 }
 .navbar-custom .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
   color: #B67090;
@@ -88,64 +163,6 @@ p {
 }
 
 /* index */
-/* masthead */
-.masthead {
-  position: relative;
-  overflow: hidden;
-  padding-top: calc(112px + 72px);
-  padding-bottom: 112px;
-  background-color: #B67090;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
-  background-size: cover;
-}
-@media (min-width: 992px) {
-  .masthead {
-    padding-top: calc(160px + 55px);
-    padding-bottom: 160px;
-  }
-}
-.masthead .masthead-content {
-  z-index: 1;
-  position: relative;
-}
-.masthead .masthead-content .container .title {
-  font-size: 85px;
-  font-weight: 500;
-}
-@media (max-width: 576px) {
-  .masthead .masthead-content .container .title {
-    font-size: 55px;
-  }
-}
-.masthead .masthead-content .container .sub-title {
-  font-size: 45px;
-  font-weight: 400;
-}
-@media (max-width: 576px) {
-  .masthead .masthead-content .container .sub-title {
-    font-size: 30px;
-  }
-}
-.masthead .scroll {
-  transform: translateY(120px);
-}
-@media (max-width: 992px) {
-  .masthead .scroll {
-    transform: translateY(80px);
-  }
-}
-.masthead .scroll i {
-  font-size: 35px;
-  color: #ffffff;
-}
-@media (max-width: 576px) {
-  .masthead .scroll i {
-    font-size: 30px;
-  }
-}
-
 /* container teddies */
 #container-teddies .product {
   display: flex;
@@ -172,7 +189,7 @@ p {
   flex-direction: row-reverse;
 }
 #container-teddies .name-product {
-  font-size: 40px;
+  font-size: 36px;
   cursor: pointer;
 }
 @media (max-width: 576px) {
@@ -183,7 +200,7 @@ p {
 #container-teddies .name-product::after {
   content: "";
   display: block;
-  border-bottom: 4px solid #CD7D4E;
+  border-bottom: 3px solid #B67090;
   width: 65px;
   height: 5px;
 }
@@ -228,6 +245,79 @@ p {
 }
 
 /* produit */
+#container-product {
+  transform: translateY(-75px);
+}
+@media (max-width: 992px) {
+  #container-product {
+    transform: none;
+  }
+}
+#container-product .page-product {
+  display: flex;
+  align-items: center;
+}
+#container-product .page-product .picture-product {
+  width: 100%;
+  border: 30px solid #ffffff;
+}
+@media (max-width: 992px) {
+  #container-product .page-product .picture-product {
+    border: none;
+  }
+}
+#container-product .page-product .product {
+  transform: translateY(93px);
+}
+@media (max-width: 1200px) {
+  #container-product .page-product .product {
+    transform: translateY(75px);
+  }
+}
+@media (max-width: 992px) {
+  #container-product .page-product .product {
+    transform: none;
+  }
+}
+#container-product .page-product .product .title {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 36px;
+}
+#container-product .page-product .product .title::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #B67090;
+  width: 65px;
+  height: 5px;
+}
+@media (max-width: 576px) {
+  #container-product .page-product .product .title::after {
+    width: 40px;
+  }
+}
+#container-product .page-product .product .description {
+  margin-top: 30px;
+}
+#container-product .page-product .product .wrapper-colors-price {
+  display: flex;
+  align-items: center;
+}
+#container-product .page-product .product .wrapper-colors-price .price-product {
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 20px 0 0;
+}
+#container-product .page-product .product .wrapper-colors-price .colors #color-product {
+  height: 33px;
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+#container-product .page-product .product .button {
+  margin-top: 40px;
+}
+
 .popup {
   display: inline-block;
   cursor: pointer;

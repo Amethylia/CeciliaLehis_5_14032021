@@ -1,8 +1,11 @@
+/* variables */
+@import "./utils/variables";
+
 /* base */
 @import "./base/base";
 
-/* variables */
-@import "./utils/variables";
+/* header */
+@import "./layouts/masthead";
 
 /* header */
 @import "./layouts/header";

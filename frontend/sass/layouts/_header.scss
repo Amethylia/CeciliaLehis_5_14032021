@@ -26,6 +26,9 @@
       i {
         font-size: 35px;
         color: $purple;
+        @media (max-width: 576px) {
+          font-size: 30px;
+        }
       }
     }
     .navbar-collapse {
@@ -42,6 +45,7 @@
             font-weight: 700;
             letter-spacing: 1.6px;
             color: $black;
+            margin-left: 5px;
             &:hover {
               color: $purple;
             }

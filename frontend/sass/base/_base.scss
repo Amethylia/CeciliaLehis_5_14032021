@@ -1,5 +1,5 @@
 /* typo */
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:wght@400;500;600;700&display=swap');
 
 $font_1: 'Gloria Hallelujah', cursive;
 $font_2: 'Raleway', sans-serif;
@@ -17,8 +17,20 @@ h2 {
 p {
   font-family: $font_2;
   font-weight: 400;
-  font-size: 18px;
-  @media (max-width: 576px) {
-    font-size: 16px;
+  font-size: 17px;
+}
+
+/* button */
+.button {
+  font-family: $font_2;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: transparent;
+  border: 2px solid $purple;
+  color: $purple;
+  &:hover {
+    background-color: $purple;
+    color: $white;
   }
 }
