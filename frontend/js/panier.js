@@ -37,7 +37,7 @@ if(productLocalStorage === null) {
             positionElement.innerHTML = productPanierStructure;
         }
     }
-    
+    localStorage.setItem("totalPrice", JSON.stringify(total));
     //affichage total panier
     document.getElementById("price").innerHTML = "Total : " + total + ' €';
 }
@@ -156,44 +156,54 @@ const showForm = () => {
         }
         //fin validation avant l'envoi des données au serveur
 
-        //envoyer "postData" au serveur
-        fetch('http://localhost:3000/api/teddies/order', {
-            method: "POST",
-            body: JSON.stringify(postData),
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-        })
-        .then(res => res.json())
-        .then(json => console.log(json))
-        .catch(err => console.log(err));
-
-        localStorage.setItem("postData", JSON.stringify(postData));
-
-        //envoyer "orderPriceNumber" = prix total + orderId au localstorage
-        const orderPriceNumber = {
-            totalPrice: "",
-            orderId: ""
-        }
-
-        let localStorageOrder = JSON.parse(localStorage.getItem("order"));
-    
-        const additionLocalStorageOrder = () => {
-            localStorageOrder.push(orderPriceNumber);
-            localStorage.setItem("order", JSON.stringify(localStorageOrder));
-        }
+        // //envoyer "postData" au serveur
+        // fetch('http://localhost:3000/api/teddies/order', {
+        //     method: "POST",
+        //     body: JSON.stringify(postData),
+        //     headers: {"Content-type": "application/json; charset=UTF-8"}
+        // })
+        // .then(res => res.json())
+        // .then(function(json) {
+        //     console.log(json);
+        //     localStorage.setItem("orderId", JSON.stringify(json.orderId));
+        //     //redirection sur la page commande
+        //     window.location.href = "./commande.html";
+        // })
+        // .catch(err => console.log(err));
         
-        if(localStorageOrder){
-            additionLocalStorageOrder();
-        }
-        else{
-            localStorageOrder = [];
-            additionLocalStorageOrder();
-        }
-    
-        //redirection selon l'id de la commande
-        // window.location.href = "./commande.html?orderId="+"orderId";
+        const sendHttpRequest = (method, url) => {
+            const promise = new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open(method, url);
+                xhr.responseType = 'json';
+                xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+                xhr.onload = () => {
+                    resolve(xhr.response);
+                };
+                xhr.onerror = () => {
+                    reject('error');
+                };
+                xhr.send(JSON.stringify(postData));
+            });
+          return promise;
+        };
 
-        //nettoyage du localstorage
-        //localStorage.clear();
+        const sendData = () => {
+            sendHttpRequest('POST', 'http://localhost:3000/api/teddies/order')
+            .then(responseData => {
+                console.log(responseData);
+                localStorage.setItem("orderId", JSON.stringify(responseData.orderId));
+                //redirection sur la page commande
+                window.location.href = "./commande.html";
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        };
+        sendData();
+
+        //vider localstorage product
+        window.localStorage.removeItem('product');
     })
 };
 

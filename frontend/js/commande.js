@@ -1,31 +1,31 @@
-//récupération de la chaîne de requête dans l'URL
-const queryString_url_id = window.location.search;
+let localStorageOrderId = JSON.parse(localStorage.getItem("orderId"));
+let localStorageTotalPrice = JSON.parse(localStorage.getItem("totalPrice"));
+let localStorageName = JSON.parse(localStorage.getItem("contact"));
 
-//extraction de l'id de la commande
-const urlSearchParams = new URLSearchParams(queryString_url_id);
-const id = urlSearchParams.get("orderId");
+const orderPriceNumber = {
+    totalPrice: localStorageTotalPrice + '€',
+    orderId: localStorageOrderId
+}
 
-//afficher la commande via l'id 
-let order;
-let fetchOrder = async() => {
-    order = await fetch(
-        'http://localhost:3000/api/teddies/'+id).then(res => 
-        res.json());
-};
-
-let localStorageOrder = JSON.parse(localStorage.getItem("order"));
-
-const totalPrice = document.getElementById('totalPrice');
+const name = document.getElementById('name');
 const orderId = document.getElementById('orderId');
+const totalPrice = document.getElementById('totalPrice');
 
 const showOrder = async() => {
-    await fetchOrder();
-    totalPrice.innerHTML = `
-        ${localStorageOrder.totalPrice}
+    name.innerHTML = `
+        Merci ${localStorageName.firstName} ${localStorageName.lastName} pour votre commande, à très vite !
     `;
     orderId.innerHTML = `
-        ${localStorageOrder.orderId}
+        ${orderPriceNumber.orderId}
+    `;
+    totalPrice.innerHTML = `
+        ${orderPriceNumber.totalPrice}
     `;
 };
 
 showOrder();
+
+//vider localstorage orderId + totalPrice + contact
+window.localStorage.removeItem('orderId');
+window.localStorage.removeItem('totalPrice');
+window.localStorage.removeItem('contact');

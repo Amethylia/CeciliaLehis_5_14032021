@@ -1,8 +1,23 @@
+/* base */
+@import "./base/base";
+
+/* variables */
+@import "./utils/variables";
+
+/* header */
+@import "./layouts/header";
+
+/* footer */
+@import "./layouts/footer";
+
 /* index */
 @import "./pages/index";
+
+/* panier */
+@import "./pages/panier";
 
 /* produit */
 @import "./pages/produit";
 
-/* panier */
-@import "./pages/panier";
+/* keyframes */
+@import "./utils/keyframes";

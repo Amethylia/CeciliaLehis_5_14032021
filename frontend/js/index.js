@@ -1,5 +1,3 @@
-const results = document.getElementById('results');
-
 let teddies;
 
 const fetchTeddies = async() => {
@@ -13,22 +11,30 @@ function clickOnProductHandle(productID) {
     window.location.href = "./produit.html?productId="+productID;
 }
 
+const containerTeddies = document.getElementById('container-teddies');
+
 const showTeddies = async() => {
     await fetchTeddies();
-
-    results.innerHTML = (
+    containerTeddies.innerHTML = (
 
         teddies
             .map(teddy => (
                 `
-                    <li class="product" onclick="clickOnProductHandle('${teddy._id}')">
-                        <h2 class="name-product">${teddy.name}</h2>
-                        <img class="picture-product" src="${teddy.imageUrl}" />
-                        <div class="info-product">
-                            <p class="description-product">${teddy.description}</p>
-                            <h2 class="price-product">${teddy.price /100} €</h2>
+                    <div class="row align-items-center product">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-3 p-lg-5">
+                                <img class="img-fluid" src="${teddy.imageUrl}" alt="img_teddy" 
+                                onclick="clickOnProductHandle('${teddy._id}')">
+                            </div>
                         </div>
-                    </li>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="py-0 px-3 p-lg-5">
+                                <h3 class="name-product" onclick="clickOnProductHandle('${teddy._id}')">${teddy.name}</h3>
+                                <p class="description-product">${teddy.description}</p>
+                                <p class="price-product">${teddy.price /100} €</p>
+                            </div>
+                        </div>
+                    </div>
                 `
             )).join('')
     );
