@@ -40,7 +40,7 @@
     }
     i {
       font-size: 35px;
-      color: #fff;
+      color: $white;
       @media (max-width: 576px) {
         font-size: 30px;
       }
@@ -77,7 +77,7 @@
     &::after {
       content: "";
       display: block;
-      border-bottom: 4px solid #CD7D4E;
+      border-bottom: 4px solid $orange;
       width: 65px;
       height: 5px;
       @media (max-width: 576px) {
