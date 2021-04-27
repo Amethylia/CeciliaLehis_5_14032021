@@ -18,14 +18,9 @@ if(productLocalStorage === null) {
     for(var i = 0; i < productLocalStorage.length ; i++) {
 
         productPanierStructure = productPanierStructure + `
-        <div id="container-product-panier">
-            <div class="product-panier">
-                <h2 class="product-name">${productLocalStorage[i].Nom}</h2>
-                <h2 class="product-color">${productLocalStorage[i].Couleur}</h2>
-                <h2 class="product-price" id="product-price">${productLocalStorage[i].Prix}</h2>
-            </div>
-        </div>
-
+            <p class="col-4 product-name">${productLocalStorage[i].Nom}</p>
+            <p class="col-4 product-color">${productLocalStorage[i].Couleur}</p>
+            <p class="col-4 product-price" id="product-price">${productLocalStorage[i].Prix}</p>
         `;
         
         //total panier
@@ -39,7 +34,7 @@ if(productLocalStorage === null) {
     }
     localStorage.setItem("totalPrice", JSON.stringify(total));
     //affichage total panier
-    document.getElementById("price").innerHTML = "Total : " + total + ' €';
+    document.getElementById("totalPrice").innerHTML = total + ' €';
 }
 
 //gestion du formulaire

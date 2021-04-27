@@ -32,45 +32,74 @@
         </div>
     </nav>
 
-    <!-- Section -->
-    <div class="container-shop-table">
-        <h2 class="product">Produit</h2>
-        <h2 class="color">Couleur</h2>
-        <h2 class="price">Prix</h2>
-    </div>
-
-    <div id="container-product-panier">
-    </div>
-
-    <div id="container-total">
-        <h2 id=price></h2>
-    </div>
-
-    <div class="order-form">
-        <h2>Formulaire à remplir pour finaliser la commande</h2>
-        <div method="POST">
-            <span id="EmptyFirstName" class="EmptyField"></span>
-            <label for="firstName">Prénom :</label>
-            <input type="text" id="firstName" name="firstName" value="celine" required>
-
-            <span id="EmptyLastName" class="EmptyField"></span>
-            <label for="lastName">Nom :</label>
-            <input type="text" id="lastName" name="lastName" value="durand" required>
-
-            <span id="EmptyAddress" class="EmptyField"></span>
-            <label for="address">Adresse :</label>
-            <textarea id="address" name="address" required>80 rue de la croix</textarea>
-
-            <span id="EmptyCity" class="EmptyField"></span>
-            <label for="city">Ville :</label>
-            <input type="text" id="city" name="city" value="angers" required>
-
-            <span id="EmptyEmail" class="EmptyField"></span>
-            <label for="email">Email :</label>
-            <input type="text" id="email" name="email" value="celinedurand@gmail.com" required>
-
-            <button id="sendForm" name="sendForm">Envoyer</button>
+    <!-- Header -->
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+          <div class="container">
+            <h1 class="mb-0 title">Panier</h1>
+          </div>
         </div>
+      </header>
+
+    <!-- Section -->
+    <div class="container p-4 p-sm-0 container-product-panier">
+      <div class="row container-shop-table">
+        <h2 class="col-4 product">Produit</h2>
+        <h2 class="col-4 color">Couleur</h2>
+        <h2 class="col-4 price">Prix</h2>
+      </div>
+      <div id="container-product-panier" class="row mb-4"></div>
+      <div class="row">
+        <div id="container-total" class="d-flex justify-content-end">
+          <div class="totalPrice">Total</div>
+          <div id=totalPrice></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="container p-4 p-sm-0 order-form">
+      <div class="row">
+        <div class="col-12 col-md-9 col-lg-7">
+          <h3 class="title-form">Formulaire</h3>
+        <p class="subtitle-form">Remplissez ce formulaire pour finaliser la commande.</p>
+        <div method="POST" class="mt-3">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <span id="EmptyLastName" class="EmptyField"></span>
+              <label for="lastName" class="d-flex mb-1 label">Nom*</label>
+              <input type="text" id="lastName" class="mb-3 px-3" name="lastName" required>
+            </div>
+            <div class="col-12 col-md-6">
+              <span id="EmptyFirstName" class="EmptyField"></span>
+              <label for="firstName" class="d-flex mb-1 label">Prénom*</label>
+              <input type="text" id="firstName" class="mb-3 px-3" name="firstName" required> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <span id="EmptyAddress" class="EmptyField"></span>
+              <label for="address" class="d-flex mb-1 label">Adresse*</label>
+              <textarea id="address" class="mb-3 px-3" name="address" required></textarea> 
+            </div>
+            <div class="col-12 col-md-6">
+              <span id="EmptyCity" class="EmptyField"></span>
+              <label for="city" class="d-flex mb-1 label">Ville*</label>
+              <input type="text" id="city" class="mb-3 px-3" name="city" required> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <span id="EmptyEmail" class="EmptyField"></span>
+              <label for="email" class="d-flex mb-1 label">Email*</label>
+              <input type="text" id="email" class="mb-4 px-3" name="email" required> 
+            </div>
+          </div>
+            <button id="sendForm" class="button" name="sendForm">Envoyer</button>
+        </div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-5"></div>
+      </div>  
     </div>
 
     <!-- Footer -->

@@ -1,14 +1,67 @@
-.container-shop-table {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-transform: uppercase;
+/* Product panier */
+.container-product-panier {
+    margin-top: 70px;
+    @media (max-width: 576px) {
+        margin-top: 30px;
+    }
+    .container-shop-table {
+        font-size: 25px;
+        @media (max-width: 576px) {
+            font-size: 20px;
+        }
+    }
+    #container-total {
+        font-family: $font_2;
+        font-weight: 500;
+        font-size: 22px;
+        @media (max-width: 576px) {
+            font-size: 18px;
+        }
+        .totalPrice {
+            margin-right: 50px;
+        }
+    }
+    #container-product-panier {
+        p {
+            color: $darkgrey;
+            font-weight: 500;
+            font-size: 22px;
+            @media (max-width: 576px) {
+                font-size: 18px;
+            }
+        }
+    }
 }
 
-#container-product-panier{
-    .product-panier {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+
+/* form */
+.order-form {
+    margin: 70px 0 90px;
+    @media (max-width: 576px) {
+        margin: 0 0 40px 0;
+    }
+    .title-form {
+        font-family: $font_2;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    .subtitle-form {
+        color: $darkgrey;
+    }
+    .label {
+        text-transform: uppercase;
+        color: $darkgrey;
+        font-family: $font_2;
+        font-weight: 500;
+    }
+    input, textarea {
+        height: 50px;
+        width: 250px;
+        font-family: $font_2;
+        color: $darkgrey;
+        border: 1px solid $lightgray;
+    }
+    #address {
+        padding-top: 13px;
     }
 }

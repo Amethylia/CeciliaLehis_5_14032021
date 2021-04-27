@@ -21,10 +21,10 @@ const showTeddy = async() => {
                 `
                 <div class="container page-product">
                     <div class="row align-items-center">
-                        <div class="col-12 col-lg-8 p-5">
+                        <div class="col-12 col-lg-8 p-4 p-lg-5">
                             <img class="picture-product" src="${teddy.imageUrl}" />
                         </div>
-                        <div class="col-12 col-lg-4 px-5 pb-5 p-lg-5 product">
+                        <div class="col-12 col-lg-4 px-4 pb-5 p-lg-5 product">
                                 <h2 class="title">${teddy.name}</h2>
                             <p class="description">${teddy.description}</p>
                             <div class="wrapper-colors-price">
