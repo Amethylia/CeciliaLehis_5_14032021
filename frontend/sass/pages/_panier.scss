@@ -18,17 +18,20 @@
             font-size: 18px;
         }
         .totalPrice {
-            margin-right: 50px;
+            margin-right: 20px;
         }
     }
     #container-product-panier {
         p {
             color: $darkgrey;
-            font-weight: 500;
             font-size: 22px;
             @media (max-width: 576px) {
                 font-size: 18px;
             }
+        }
+        .container-empty-panier {
+            font-family: $font_2;
+            color: $darkgrey;
         }
     }
 }

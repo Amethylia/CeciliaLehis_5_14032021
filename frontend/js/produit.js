@@ -21,7 +21,7 @@ const showTeddy = async() => {
                 `
                 <div class="container page-product">
                     <div class="row align-items-center">
-                        <div class="col-12 col-lg-8 p-4 p-lg-5">
+                        <div class="col-12 col-lg-8 mt-4 mt-lg-0 p-4 p-lg-5">
                             <img class="picture-product" src="${teddy.imageUrl}" />
                         </div>
                         <div class="col-12 col-lg-4 px-4 pb-5 p-lg-5 product">

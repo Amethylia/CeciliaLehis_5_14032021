@@ -259,17 +259,20 @@ p {
   }
 }
 .container-product-panier #container-total .totalPrice {
-  margin-right: 50px;
+  margin-right: 20px;
 }
 .container-product-panier #container-product-panier p {
   color: #999999;
-  font-weight: 500;
   font-size: 22px;
 }
 @media (max-width: 576px) {
   .container-product-panier #container-product-panier p {
     font-size: 18px;
   }
+}
+.container-product-panier #container-product-panier .container-empty-panier {
+  font-family: "Raleway", sans-serif;
+  color: #999999;
 }
 
 /* form */
@@ -413,6 +416,22 @@ p {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+/* commande */
+/* Container order */
+.container-order {
+  margin-bottom: 800px;
+}
+.container-order p {
+  color: #999999;
+}
+.container-order .orderId,
+.container-order .totalPrice {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: uppercase;
 }
 
 /* keyframes */
