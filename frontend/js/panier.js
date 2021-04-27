@@ -18,9 +18,9 @@ if(productLocalStorage === null) {
     for(var i = 0; i < productLocalStorage.length ; i++) {
 
         productPanierStructure = productPanierStructure + `
-            <p class="col-4 product-name">${productLocalStorage[i].Nom}</p>
-            <p class="col-4 product-color">${productLocalStorage[i].Couleur}</p>
-            <p class="col-4 product-price" id="product-price">${productLocalStorage[i].Prix}</p>
+            <p class="col-4 mb-1 product-name">${productLocalStorage[i].Nom}</p>
+            <p class="col-4 mb-1 product-color">${productLocalStorage[i].Couleur}</p>
+            <p class="col-4 mb-1 product-price" id="product-price">${productLocalStorage[i].Prix}</p>
         `;
         
         //total panier
