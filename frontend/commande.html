@@ -15,12 +15,12 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" role="navigation">
         <div class="container">
           <a class="navbar-brand" href="index.html">
             <img src="img/logo.jpg" alt="logo orinoco" class="my-2 logo">
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" role="button">
             <i class="fas fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -28,36 +28,33 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Acceuil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="panier.html">Panier</a>
-                </li>
             </ul>
           </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="masthead text-center text-white">
+    <header class="masthead text-center text-white" role="heading">
         <div class="masthead-content">
             <div class="container">
-            <h1 class="mb-0 title">Ma commande</h1>
+            <h1 class="mb-0 title-page">Commande</h1>
             </div>
         </div>
     </header>
 
     <!-- Section -->
-    <div class="container mt-5 px-5 px-sm-0 container-order">
+    <div class="container p-4 p-md-4 p-lg-0 container-order" role="section">
         <p id="name" class="mb-4"></p>
-        <div class="orderId">Numéro
+        <h2 class="orderId">Numéro
             <p id="orderId"></p>
-        </div>
-        <div class="totalPrice">Total
+        </h2>
+        <h2 class="totalPrice">Total
             <p id="totalPrice"></p>
-        </div>
+        </h2>
     </div>
 
     <!-- Footer -->
-    <footer class="py-3 container-copy">
+    <footer class="py-3 container-copy" role="footer">
         <div class="container">
         <p class="m-0 text-center text-black">Copyright &copy; Orinoco 2021</p>
         </div>

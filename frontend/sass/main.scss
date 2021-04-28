@@ -4,8 +4,8 @@
 /* base */
 @import "./base/base";
 
-/* header */
-@import "./layouts/masthead";
+/* structure */
+@import "./base/structure";
 
 /* header */
 @import "./layouts/header";
@@ -16,14 +16,12 @@
 /* index */
 @import "./pages/index";
 
-/* panier */
-@import "./pages/panier";
-
 /* produit */
 @import "./pages/produit";
+
+/* panier */
+@import "./pages/panier";
 
 /* commande */
 @import "./pages/commande";
 
-/* keyframes */
-@import "./utils/keyframes";

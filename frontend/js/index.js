@@ -31,7 +31,7 @@ const showTeddies = async() => {
                             <div class="py-0 px-3 p-lg-5">
                                 <h3 class="name-product" onclick="clickOnProductHandle('${teddy._id}')">${teddy.name}</h3>
                                 <p class="description-product">${teddy.description}</p>
-                                <h4 class="price-product">${teddy.price /100} €</h4>
+                                <div class="price-product">${teddy.price /100} €</div>
                             </div>
                         </div>
                     </div>

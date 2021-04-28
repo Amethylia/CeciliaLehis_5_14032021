@@ -4,10 +4,12 @@
     @media (max-width: 576px) {
         margin-top: 30px;
     }
-    .container-shop-table {
-        font-size: 25px;
+    .product,
+    .color,
+    .price {
+        font-size: 36px;
         @media (max-width: 576px) {
-            font-size: 20px;
+            font-size: 24px;
         }
     }
     #container-total {
@@ -22,16 +24,15 @@
         }
     }
     #container-product-panier {
-        p {
-            color: $darkgrey;
+        .product-name,
+        .product-color,
+        .product-price,
+        .empty-panier {
+            font-family: $font_2;
             font-size: 22px;
             @media (max-width: 576px) {
                 font-size: 18px;
             }
-        }
-        .container-empty-panier {
-            font-family: $font_2;
-            color: $darkgrey;
         }
     }
 }
@@ -44,16 +45,13 @@
         margin: 0 0 40px 0;
     }
     .title-form {
-        font-family: $font_2;
-        text-transform: uppercase;
         font-weight: 500;
-    }
-    .subtitle-form {
-        color: $darkgrey;
+        font-size: 36px;
+        @media (max-width: 576px) {
+            font-size: 24px;
+        }
     }
     .label {
-        text-transform: uppercase;
-        color: $darkgrey;
         font-family: $font_2;
         font-weight: 500;
     }
@@ -61,8 +59,7 @@
         height: 50px;
         width: 250px;
         font-family: $font_2;
-        color: $darkgrey;
-        border: 1px solid $lightgray;
+        border: 1px solid $lightgrey;
     }
     #address {
         padding-top: 13px;

@@ -7,9 +7,7 @@ const positionElement = document.getElementById('container-product-panier');
 //vérification présence articles dans le panier
 if(productLocalStorage === null) {
     const emptyPanier = `
-    <div class="container-empty-panier">
-        <div>Le panier est vide.</div>
-    </div>
+        <div class="empty-panier">Le panier est vide.</div>
     `;
     positionElement.innerHTML = emptyPanier;
 } else {
@@ -18,9 +16,9 @@ if(productLocalStorage === null) {
     for(var i = 0; i < productLocalStorage.length ; i++) {
 
         productPanierStructure = productPanierStructure + `
-            <p class="col-4 mb-1 product-name">${productLocalStorage[i].Nom}</p>
-            <p class="col-4 mb-1 product-color">${productLocalStorage[i].Couleur}</p>
-            <p class="col-4 mb-1 product-price" id="product-price">${productLocalStorage[i].Prix}</p>
+            <span class="col-4 mb-1 product-name">${productLocalStorage[i].Nom}</span>
+            <span class="col-4 mb-1 product-color">${productLocalStorage[i].Couleur}</span>
+            <span class="col-4 mb-1 product-price" id="product-price">${productLocalStorage[i].Prix}</span>
         `;
         
         //total panier

@@ -26,16 +26,16 @@ const showTeddy = async() => {
                             <img class="picture-product" src="${teddy.imageUrl}" alt="image ours"/>
                         </div>
                         <div class="col-12 col-lg-4 px-4 pb-5 p-lg-5 product">
-                                <h2 class="title">${teddy.name}</h2>
-                            <p class="description">${teddy.description}</p>
+                                <h2 class="name-product">${teddy.name}</h2>
+                            <p class="description-product">${teddy.description}</p>
                             <div class="wrapper-colors-price">
                                 <div class="price-product">${teddy.price /100} €</div>
-                                <form class="colors">
+                                <form class="colors" role="form">
                                     <label for="color-product"></label>
                                     <select name="color-product" id="color-product"></select>
                                 </form>   
                             </div>
-                            <button type="submit" id="btn-send" class="button" data-toggle="modal" data-target="#modalPanier">
+                            <button type="submit" id="btn-send" class="button" data-toggle="modal" data-target="#modalPanier" role="button">
                                 Ajouter au panier
                             </button>
                         </div>

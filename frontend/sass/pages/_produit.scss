@@ -22,39 +22,17 @@
       @media (max-width: 992px) {
         transform: none;
       }
-      .title {
-        font-family: $font_1;
-        font-size: 36px;
-        &::after {
-          content: "";
-          display: block;
-          border-bottom: 3px solid $purple;
-          width: 65px;
-          height: 5px;
-          @media (max-width: 576px) {
-            width: 40px;
-          }
-        }
-      }
       .description {
         margin-top: 30px;
       }
       .wrapper-colors-price {
         display: flex;
         align-items: center;
-        .price-product {
+        #color-product {
+          height: 33px;
+          cursor: pointer;
           font-family: $font_2;
-          font-size: 22px;
           font-weight: 500;
-          margin: 0 20px 0 0;
-        }
-        .colors {
-          #color-product {
-            height: 33px;
-            cursor: pointer;
-            font-family: $font_2;
-            font-weight: 500;
-          }
         }
       }
       .button {
@@ -85,7 +63,6 @@
   }
   #modal-body {
     font-family: $font_2;
-    color: $darkgrey;
     padding: 15px;
   }
   .modal-footer {

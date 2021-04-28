@@ -1,3 +1,4 @@
+/* navigation */
 .navbar-custom {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -54,3 +55,37 @@
       }
     } 
   }  
+
+/* masthead */
+.masthead {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(112px + 72px);
+  padding-bottom: 112px;
+  background-color: $purple;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  @media (min-width: 992px) {
+    padding-top: calc(160px + 55px);
+    padding-bottom: 160px;
+  }
+  .masthead-content {
+    z-index: 1;
+    position: relative; 
+  }
+  .scroll {
+    transform: translateY(120px);
+    @media (max-width: 992px) {
+      transform: translateY(80px);
+    }
+    i {
+      font-size: 35px;
+      color: $white;
+      @media (max-width: 576px) {
+        font-size: 30px;
+      }
+    }
+  }
+}

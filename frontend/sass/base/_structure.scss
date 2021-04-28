@@ -1,0 +1,53 @@
+/* header */
+.title-page {
+  font-weight: 500;
+  font-size: 75px;
+  @media (max-width: 576px) {
+      font-size: 50px;
+  }
+}
+
+.slogan {
+    font-family: $font_2;
+    font-size: 36px;
+    font-weight: 400;
+    @media (max-width: 576px) {
+      font-size: 24px;
+    }
+}
+
+/* product */
+.name-product {
+    font-family: $font_1;
+    font-size: 34px;
+    @media (max-width: 576px) {
+      font-size: 28px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 3px solid $purple;
+      width: 65px;
+      height: 5px;
+      @media (max-width: 576px) {
+        width: 40px;
+      }
+    }
+}
+
+.description-product {
+    margin: 30px 0 10px 0;
+    @media (max-width: 576px) {
+      margin: 20px 0 5px 0;
+    }
+}
+
+.price-product {
+    font-family: $font_2;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 20px 0 0;
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
+}
