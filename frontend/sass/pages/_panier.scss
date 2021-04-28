@@ -8,14 +8,20 @@
     .color,
     .price {
         font-size: 36px;
+        @media (max-width: 768px) {
+            font-size: 34px;
+        }
         @media (max-width: 576px) {
-            font-size: 24px;
+            font-size: 28px;
         }
     }
     #container-total {
         font-family: $font_2;
         font-weight: 500;
-        font-size: 22px;
+        font-size: 24px;
+        @media (max-width: 768px) {
+            font-size: 22px;
+        }
         @media (max-width: 576px) {
             font-size: 18px;
         }
@@ -30,6 +36,9 @@
         .empty-panier {
             font-family: $font_2;
             font-size: 22px;
+            @media (max-width: 768px) {
+                font-size: 20px;
+            }
             @media (max-width: 576px) {
                 font-size: 18px;
             }
@@ -47,8 +56,11 @@
     .title-form {
         font-weight: 500;
         font-size: 36px;
+        @media (max-width: 768px) {
+            font-size: 34px;
+        }
         @media (max-width: 576px) {
-            font-size: 24px;
+            font-size: 28px;
         }
     }
     .label {

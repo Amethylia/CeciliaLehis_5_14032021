@@ -29,7 +29,7 @@ const showTeddies = async() => {
                         </div>
                         <div class="col-lg-6 order-lg-1">
                             <div class="py-0 px-3 p-lg-5">
-                                <h3 class="name-product" onclick="clickOnProductHandle('${teddy._id}')">${teddy.name}</h3>
+                                <h2 class="name-product" onclick="clickOnProductHandle('${teddy._id}')">${teddy.name}</h2>
                                 <p class="description-product">${teddy.description}</p>
                                 <div class="price-product">${teddy.price /100} €</div>
                             </div>

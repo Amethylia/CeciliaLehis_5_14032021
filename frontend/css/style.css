@@ -3,8 +3,7 @@
 /* base */
 /* typo */
 @import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:wght@400;500;600;700&display=swap");
-h1,
-h3 {
+h1 {
   font-family: "Gloria Hallelujah", cursive;
 }
 
@@ -37,7 +36,12 @@ p {
 /* header */
 .title-page {
   font-weight: 500;
-  font-size: 75px;
+  font-size: 70px;
+}
+@media (max-width: 768px) {
+  .title-page {
+    font-size: 60px;
+  }
 }
 @media (max-width: 576px) {
   .title-page {
@@ -50,16 +54,26 @@ p {
   font-size: 36px;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  .slogan {
+    font-size: 32px;
+  }
+}
 @media (max-width: 576px) {
   .slogan {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
 /* product */
 .name-product {
   font-family: "Gloria Hallelujah", cursive;
-  font-size: 34px;
+  font-size: 36px;
+}
+@media (max-width: 768px) {
+  .name-product {
+    font-size: 34px;
+  }
 }
 @media (max-width: 576px) {
   .name-product {
@@ -73,9 +87,14 @@ p {
   width: 65px;
   height: 5px;
 }
+@media (max-width: 768px) {
+  .name-product::after {
+    width: 55px;
+  }
+}
 @media (max-width: 576px) {
   .name-product::after {
-    width: 40px;
+    width: 50px;
   }
 }
 
@@ -90,7 +109,7 @@ p {
 
 .price-product {
   font-family: "Raleway", sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   margin: 0 20px 0 0;
 }
@@ -279,9 +298,6 @@ p {
     transform: none;
   }
 }
-#container-product .page-product .product .description {
-  margin-top: 30px;
-}
 #container-product .page-product .product .wrapper-colors-price {
   display: flex;
   align-items: center;
@@ -363,17 +379,29 @@ p {
 .container-product-panier .price {
   font-size: 36px;
 }
+@media (max-width: 768px) {
+  .container-product-panier .product,
+.container-product-panier .color,
+.container-product-panier .price {
+    font-size: 34px;
+  }
+}
 @media (max-width: 576px) {
   .container-product-panier .product,
 .container-product-panier .color,
 .container-product-panier .price {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 .container-product-panier #container-total {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 24px;
+}
+@media (max-width: 768px) {
+  .container-product-panier #container-total {
+    font-size: 22px;
+  }
 }
 @media (max-width: 576px) {
   .container-product-panier #container-total {
@@ -389,6 +417,14 @@ p {
 .container-product-panier #container-product-panier .empty-panier {
   font-family: "Raleway", sans-serif;
   font-size: 22px;
+}
+@media (max-width: 768px) {
+  .container-product-panier #container-product-panier .product-name,
+.container-product-panier #container-product-panier .product-color,
+.container-product-panier #container-product-panier .product-price,
+.container-product-panier #container-product-panier .empty-panier {
+    font-size: 20px;
+  }
 }
 @media (max-width: 576px) {
   .container-product-panier #container-product-panier .product-name,
@@ -412,9 +448,14 @@ p {
   font-weight: 500;
   font-size: 36px;
 }
+@media (max-width: 768px) {
+  .order-form .title-form {
+    font-size: 34px;
+  }
+}
 @media (max-width: 576px) {
   .order-form .title-form {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 .order-form .label {
@@ -443,16 +484,21 @@ p {
 }
 .container-order .orderId,
 .container-order .totalPrice {
-  font-size: 36px;
+  font-size: 34px;
+  margin-bottom: 30px;
 }
 @media (max-width: 576px) {
   .container-order .orderId,
 .container-order .totalPrice {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
+.container-order #orderId,
+.container-order #totalPrice {
+  margin-top: 12px;
+}
 .container-order p {
-  font-size: 24px;
+  font-size: 20px;
 }
 @media (max-width: 576px) {
   .container-order p {
