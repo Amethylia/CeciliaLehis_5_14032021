@@ -1,3 +1,4 @@
+/* Container product */
 #container-product {
   transform: translateY(-75px);
   @media (max-width: 992px) {
@@ -63,36 +64,57 @@
   }
 }
 
-.popup {
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
-}
-#windowPopup-container {
-  visibility: hidden;
-  animation: popup 1s;
-  width: 160px;
-  background-color: lightgrey;
-  color: black;
-  text-align: center;
-  padding: 35px 50px;
-  z-index: 1;
-  position: absolute;
-  top: 40%;
-  right: 0;   
-  left: 0;
-  margin: auto;
-  &.active {
-    visibility: visible;
+/* Modal */
+.modal-content {
+  .modal-title {
+    font-family: $font_2;
+    font-weight: 600;
   }
   .close {
     border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: 700;
-    position:absolute;
-    top: 10px;
-    right: 10px;
+    background: transparent;
+    font-family: $font_2;
+    color: $purple;
+    font-size: 26px;
+    font-weight: 800;
+    height: 26px;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #modal-body {
+    font-family: $font_2;
+    color: $darkgrey;
+    padding: 15px;
+  }
+  .modal-footer {
+    & > * {
+      @media (max-width: 576px) {
+        margin: 0;
+      }
+    }
+    .button {
+      font-size: 14px;
+      padding: 12px 20px;
+      &:nth-child(1) {
+        @media (max-width: 576px) {
+          margin-right: 10px;
+        }
+        @media (max-width: 444px) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .button-panier {
+      font-family: $font_2;
+      background-color: $purple;
+      color: $white;
+      &:hover {
+      border: 2px solid $purple;
+      background-color: transparent;
+      color: $purple;
+      }
+    }
   }
 }

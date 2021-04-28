@@ -218,8 +218,10 @@ p {
   }
 }
 #container-teddies .price-product {
+  font-family: "Raleway", sans-serif;
   font-size: 22px;
   font-weight: 500;
+  margin: 0 20px 0 0;
 }
 @media (max-width: 576px) {
   #container-teddies .price-product {
@@ -310,6 +312,7 @@ p {
 }
 
 /* produit */
+/* Container product */
 #container-product {
   transform: translateY(-75px);
 }
@@ -383,39 +386,57 @@ p {
   margin-top: 40px;
 }
 
-.popup {
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
+/* Modal */
+.modal-content .modal-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
 }
-
-#windowPopup-container {
-  visibility: hidden;
-  animation: popup 1s;
-  width: 160px;
-  background-color: lightgrey;
-  color: black;
-  text-align: center;
-  padding: 35px 50px;
-  z-index: 1;
-  position: absolute;
-  top: 40%;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
-#windowPopup-container.active {
-  visibility: visible;
-}
-#windowPopup-container .close {
+.modal-content .close {
   border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 25px;
-  font-weight: 700;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  background: transparent;
+  font-family: "Raleway", sans-serif;
+  color: #B67090;
+  font-size: 26px;
+  font-weight: 800;
+  height: 26px;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content #modal-body {
+  font-family: "Raleway", sans-serif;
+  color: #999999;
+  padding: 15px;
+}
+@media (max-width: 576px) {
+  .modal-content .modal-footer > * {
+    margin: 0;
+  }
+}
+.modal-content .modal-footer .button {
+  font-size: 14px;
+  padding: 12px 20px;
+}
+@media (max-width: 576px) {
+  .modal-content .modal-footer .button:nth-child(1) {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 444px) {
+  .modal-content .modal-footer .button:nth-child(1) {
+    margin-bottom: 10px;
+  }
+}
+.modal-content .modal-footer .button-panier {
+  font-family: "Raleway", sans-serif;
+  background-color: #B67090;
+  color: #ffffff;
+}
+.modal-content .modal-footer .button-panier:hover {
+  border: 2px solid #B67090;
+  background-color: transparent;
+  color: #B67090;
 }
 
 /* commande */

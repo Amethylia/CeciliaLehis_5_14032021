@@ -14,6 +14,7 @@ let fetchTeddy = async() => {
 }
 
 const results = document.getElementById('container-product');
+const modalPanier = document.getElementById('modal-body');
 
 const showTeddy = async() => {
     await fetchTeddy();
@@ -22,7 +23,7 @@ const showTeddy = async() => {
                 <div class="container page-product">
                     <div class="row align-items-center">
                         <div class="col-12 col-lg-8 mt-4 mt-lg-0 p-4 p-lg-5">
-                            <img class="picture-product" src="${teddy.imageUrl}" />
+                            <img class="picture-product" src="${teddy.imageUrl}" alt="image ours"/>
                         </div>
                         <div class="col-12 col-lg-4 px-4 pb-5 p-lg-5 product">
                                 <h2 class="title">${teddy.name}</h2>
@@ -34,18 +35,21 @@ const showTeddy = async() => {
                                     <select name="color-product" id="color-product"></select>
                                 </form>   
                             </div>
-                            <button class="button popup" id="btn-send" type="submit" name="btn-send">
+                            <button type="submit" id="btn-send" class="button" data-toggle="modal" data-target="#modalPanier">
                                 Ajouter au panier
                             </button>
-                            <div id="windowPopup-container">
-                                <div id="myPopUp"> ${teddy.name} a bien été ajouté au panier.
-                                <button class="close" id="close">x</button></div>
-                            </div>
                         </div>
                     </div>
                 </div>
+                
                 `
     ;
+
+    modalPanier.innerHTML =
+        `
+            ${teddy.name} a bien été ajouté au panier.
+        `;
+
 
     //choix des couleurs
     let selectColor = document.getElementById('color-product');
@@ -94,20 +98,6 @@ const showTeddy = async() => {
             productLocalStorage = [];
             additionLocalStorage();
         }
-
-        //popup
-        const popUpShow = document.getElementById("windowPopup-container");
-        popUpShow.classList.add("active");
-    })
-
-    //gestion popUpClose
-    const popUpHide = document.getElementById('close');
-    const popUpShow = document.getElementById("windowPopup-container");
-
-    popUpHide.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        popUpShow.classList.remove("active");
     })
 };
 
