@@ -42,11 +42,6 @@ const showForm = () => {
 
     btnSendForm.addEventListener("click", (event) => {
         event.preventDefault();
-    
-        const postData = {
-            contact: {},
-            products: []
-        }
 
         //récupération des valeurs du formulaire
         let firstNameForm = document.getElementById('firstName').value;
@@ -54,6 +49,12 @@ const showForm = () => {
         let addressForm = document.getElementById('address').value;
         let cityForm = document.getElementById('city').value;
         let emailForm = document.getElementById('email').value;
+
+        //contact & products dans un objet pour l'envoyer ensuite au serveur
+        const postData = {
+            contact: {},
+            products: []
+        }
 
         postData.contact = {
             firstName: firstNameForm,
@@ -87,17 +88,6 @@ const showForm = () => {
         };
 
         //fonction control
-        //prénom
-        function firstNameControl() {
-            const firstName = firstNameForm;
-            if (regExNameCity(firstName)) {
-                return true;
-            } else {
-                dataEmptyField("EmptyFirstName");
-                return false;
-            }
-        };
-        
         //nom
         function lastNameControl() {
             const lastName = lastNameForm;
@@ -109,6 +99,17 @@ const showForm = () => {
             }
         };
 
+        //prénom
+        function firstNameControl() {
+            const firstName = firstNameForm;
+            if (regExNameCity(firstName)) {
+                return true;
+            } else {
+                dataEmptyField("EmptyFirstName");
+                return false;
+            }
+        };
+        
         //adresse
         function addressControl() {
             const address = addressForm;
@@ -145,55 +146,42 @@ const showForm = () => {
         if (firstNameControl() && lastNameControl() && addressControl() && cityControl() && emailControl()) {
             //mettre l'object "postData.contact" dans le local storage
             localStorage.setItem("contact", JSON.stringify(postData.contact));
+
+            //envoyer "postData" au serveur
+            const sendHttpRequest = (method, url) => {
+                const promise = new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open(method, url);
+                    xhr.responseType = 'json';
+                    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+                    xhr.onload = () => {
+                        resolve(xhr.response);
+                    };
+                    xhr.onerror = () => {
+                        reject('error');
+                    };
+                    xhr.send(JSON.stringify(postData));
+                });
+              return promise;
+            };
+    
+            const sendData = () => {
+                sendHttpRequest('POST', 'http://localhost:3000/api/teddies/order')
+                .then(responseData => {
+                    console.log(responseData);
+                    localStorage.setItem("orderId", JSON.stringify(responseData.orderId));
+                    //redirection sur la page commande
+                    window.location.href = "./commande.html";
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            };
+            sendData();
         } else {
+            alert("Veuillez bien remplir le formulaire !");
         }
         //fin validation avant l'envoi des données au serveur
-
-        // //envoyer "postData" au serveur
-        // fetch('http://localhost:3000/api/teddies/order', {
-        //     method: "POST",
-        //     body: JSON.stringify(postData),
-        //     headers: {"Content-type": "application/json; charset=UTF-8"}
-        // })
-        // .then(res => res.json())
-        // .then(function(json) {
-        //     console.log(json);
-        //     localStorage.setItem("orderId", JSON.stringify(json.orderId));
-        //     //redirection sur la page commande
-        //     window.location.href = "./commande.html";
-        // })
-        // .catch(err => console.log(err));
-        
-        const sendHttpRequest = (method, url) => {
-            const promise = new Promise((resolve, reject) => {
-                const xhr = new XMLHttpRequest();
-                xhr.open(method, url);
-                xhr.responseType = 'json';
-                xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
-                xhr.onload = () => {
-                    resolve(xhr.response);
-                };
-                xhr.onerror = () => {
-                    reject('error');
-                };
-                xhr.send(JSON.stringify(postData));
-            });
-          return promise;
-        };
-
-        const sendData = () => {
-            sendHttpRequest('POST', 'http://localhost:3000/api/teddies/order')
-            .then(responseData => {
-                console.log(responseData);
-                localStorage.setItem("orderId", JSON.stringify(responseData.orderId));
-                //redirection sur la page commande
-                window.location.href = "./commande.html";
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        };
-        sendData();
 
         //vider localstorage product
         window.localStorage.removeItem('product');
@@ -201,4 +189,3 @@ const showForm = () => {
 };
 
 showForm();
-

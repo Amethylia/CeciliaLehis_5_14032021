@@ -63,41 +63,51 @@
       <div class="row">
         <div class="col-12 col-md-9 col-lg-7">
           <h2 class="title-form">Formulaire</h2>
-        <p class="subtitle-form">Remplissez ce formulaire pour finaliser la commande.</p>
-        <div method="POST" class="mt-3">
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <span id="EmptyLastName" class="EmptyField"></span>
-              <label for="lastName" class="d-flex mb-1 label">Nom*</label>
-              <input type="text" id="lastName" class="mb-3 px-3" name="lastName" required>
+          <p class="subtitle-form">Remplissez ce formulaire pour finaliser la commande.</p>
+          <form method="POST" class="mt-3">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <label for="lastName" class="d-flex mb-1 label">Nom*</label>
+                  <span id="EmptyLastName" class="emptyField"></span>
+                </div>
+                <input type="text" class="mb-3 px-3" id="lastName" name="lastName" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <label for="firstName" class="d-flex mb-1 label">Prénom*</label>
+                  <span id="EmptyFirstName" class="emptyField"></span>
+                </div>
+                <input type="text" class="mb-3 px-3" id="firstName" name="firstName" required>
+              </div>
             </div>
-            <div class="col-12 col-md-6">
-              <span id="EmptyFirstName" class="EmptyField"></span>
-              <label for="firstName" class="d-flex mb-1 label">Prénom*</label>
-              <input type="text" id="firstName" class="mb-3 px-3" name="firstName" required> 
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <label for="address" class="d-flex mb-1 label">Adresse*</label>
+                  <span id="EmptyAddress" class="emptyField"></span>
+                </div>
+                <textarea class="mb-3 px-3" id="address" name="address" required></textarea>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <label for="city" class="d-flex mb-1 label">Ville*</label>
+                  <span id="EmptyCity" class="emptyField"></span>
+                </div>
+                <input type="text" class="mb-3 px-3" id="city" name="city" required>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <span id="EmptyAddress" class="EmptyField"></span>
-              <label for="address" class="d-flex mb-1 label">Adresse*</label>
-              <textarea id="address" class="mb-3 px-3" name="address" required></textarea> 
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <label for="email" class="d-flex mb-1 label">Email*</label>
+                  <span id="EmptyEmail" class="emptyField"></span>
+                </div>
+                <input type="text" class="mb-4 px-3" id="email" name="email" required>
+              </div>
             </div>
-            <div class="col-12 col-md-6">
-              <span id="EmptyCity" class="EmptyField"></span>
-              <label for="city" class="d-flex mb-1 label">Ville*</label>
-              <input type="text" id="city" class="mb-3 px-3" name="city" required> 
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <span id="EmptyEmail" class="EmptyField"></span>
-              <label for="email" class="d-flex mb-1 label">Email*</label>
-              <input type="text" id="email" class="mb-4 px-3" name="email" required> 
-            </div>
-          </div>
-            <button id="sendForm" class="button" name="sendForm" role="button">Envoyer</button>
-        </div>
+              <button id="sendForm" class="button" name="sendForm" role="button">Envoyer</button>
+          </form>
         </div>
         <div class="col-12 col-md-3 col-lg-5"></div>
       </div>  

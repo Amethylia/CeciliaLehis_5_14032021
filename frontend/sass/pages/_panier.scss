@@ -66,6 +66,12 @@
     .label {
         font-family: $font_2;
         font-weight: 500;
+        margin-right: 15px;
+    }
+    .emptyField {
+        font-family: $font_2;
+        font-weight: 500;
+        color: $purple;
     }
     input, textarea {
         height: 50px;

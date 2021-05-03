@@ -461,6 +461,12 @@ p {
 .order-form .label {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
+  margin-right: 15px;
+}
+.order-form .emptyField {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: #B67090;
 }
 .order-form input, .order-form textarea {
   height: 50px;
