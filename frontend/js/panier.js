@@ -83,8 +83,12 @@ const showForm = () => {
         }
 
         //fonction avertissement
-        function dataEmptyField(getElementById) {
-            document.getElementById(`${getElementById}`).textContent = "Champ obligatoire !";
+        function EmptyFieldEmptyText(getElementById) {
+            return document.getElementById(getElementById).textContent = "";
+        };
+
+        function EmptyFieldText(getElementById) {
+            return document.getElementById(getElementById).textContent = "Champ obligatoire !";
         };
 
         //fonction control
@@ -92,9 +96,10 @@ const showForm = () => {
         function lastNameControl() {
             const lastName = lastNameForm;
             if (regExNameCity(lastName)) {
+                EmptyFieldEmptyText("EmptyLastName");
                 return true;
             } else {
-                dataEmptyField("EmptyLastName");
+                EmptyFieldText("EmptyLastName");
                 return false;
             }
         };
@@ -103,9 +108,10 @@ const showForm = () => {
         function firstNameControl() {
             const firstName = firstNameForm;
             if (regExNameCity(firstName)) {
+                EmptyFieldEmptyText("EmptyFirstName");
                 return true;
             } else {
-                dataEmptyField("EmptyFirstName");
+                EmptyFieldText("EmptyFirstName");
                 return false;
             }
         };
@@ -114,9 +120,10 @@ const showForm = () => {
         function addressControl() {
             const address = addressForm;
             if (regExAddress(address)) {
+                EmptyFieldEmptyText("EmptyAddress");
                 return true;
             } else {
-                dataEmptyField("EmptyAddress");
+                EmptyFieldText("EmptyAddress");
                 return false;
             }
         };
@@ -125,9 +132,10 @@ const showForm = () => {
         function cityControl() {
             const city = cityForm;
             if (regExNameCity(city)) {
+                EmptyFieldEmptyText("EmptyCity");
                 return true;
             } else {
-                dataEmptyField("EmptyCity");
+                EmptyFieldText("EmptyCity");
                 return false;
             }
         };
@@ -136,14 +144,15 @@ const showForm = () => {
         function emailControl() {
             const email = emailForm;
             if (regExEmail(email)) {
+                EmptyFieldEmptyText("EmptyEmail");
                 return true;
             } else {
-                dataEmptyField("EmptyEmail");
+                EmptyFieldText("EmptyEmail");
                 return false;
             }
         };
 
-        if (firstNameControl() && lastNameControl() && addressControl() && cityControl() && emailControl()) {
+        if (lastNameControl() && firstNameControl() && addressControl() && cityControl() && emailControl()) {
             //mettre l'object "postData.contact" dans le local storage
             localStorage.setItem("contact", JSON.stringify(postData.contact));
 
@@ -170,8 +179,8 @@ const showForm = () => {
                 .then(responseData => {
                     console.log(responseData);
                     localStorage.setItem("orderId", JSON.stringify(responseData.orderId));
-                    //redirection sur la page commande
-                    window.location.href = "./commande.html";
+                        //redirection sur la page commande
+                        window.location.href = "./commande.html";
                 })
                 .catch(err => {
                     console.log(err);

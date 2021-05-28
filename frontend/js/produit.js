@@ -4,8 +4,11 @@ const queryString_url_id = window.location.search;
 //extraction de l'id
 const urlSearchParams = new URLSearchParams(queryString_url_id);
 const id = urlSearchParams.get("productId");
-
-//afficher le produit via l'id 
+if(!id) {
+     //redirection sur la page d'accueil
+     window.location.href = "./index.html";
+}else {
+    //afficher le produit via l'id 
 let teddy;
 let fetchTeddy = async() => {
     teddy = await fetch(
@@ -30,12 +33,12 @@ const showTeddy = async() => {
                             <p class="description-product">${teddy.description}</p>
                             <div class="wrapper-colors-price">
                                 <div class="price-product">${teddy.price /100} €</div>
-                                <form class="colors" role="form">
+                                <form class="colors">
                                     <label for="color-product"></label>
                                     <select name="color-product" id="color-product"></select>
                                 </form>   
                             </div>
-                            <button type="submit" id="btn-send" class="button" data-toggle="modal" data-target="#modalPanier" role="button">
+                            <button type="submit" id="btn-send" class="button" data-toggle="modal" data-target="#modalPanier">
                                 Ajouter au panier
                             </button>
                         </div>
@@ -90,7 +93,7 @@ const showTeddy = async() => {
             localStorage.setItem("product", JSON.stringify(productLocalStorage));
         }
 
-        //vérification présence de produits dans le local storage
+        //vérification présence de produits dans le localStorage
         if(productLocalStorage){
             additionLocalStorage();
         }
@@ -102,5 +105,7 @@ const showTeddy = async() => {
 };
 
 showTeddy();
+}
+
 
 

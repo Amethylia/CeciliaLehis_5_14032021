@@ -63,6 +63,9 @@
     padding: 15px;
   }
   .modal-footer {
+    a {
+      text-decoration: none;
+    }
     & > * {
       @media (max-width: 576px) {
         margin: 0;

@@ -334,6 +334,9 @@ p {
   font-family: "Raleway", sans-serif;
   padding: 15px;
 }
+.modal-content .modal-footer a {
+  text-decoration: none;
+}
 @media (max-width: 576px) {
   .modal-content .modal-footer > * {
     margin: 0;
@@ -490,6 +493,7 @@ p {
 }
 .container-order .orderId,
 .container-order .totalPrice {
+  font-family: "Raleway", sans-serif;
   font-size: 34px;
   margin-bottom: 30px;
 }
