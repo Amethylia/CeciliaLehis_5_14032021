@@ -11,7 +11,7 @@ const name = document.getElementById('name');
 const orderId = document.getElementById('orderId');
 const totalPrice = document.getElementById('totalPrice');
 
-const showOrder = async() => {
+const showOrder = () => {
     name.innerHTML = `
         Merci ${localStorageName.firstName} ${localStorageName.lastName} pour votre commande, à très vite !
     `;

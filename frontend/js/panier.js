@@ -71,11 +71,11 @@ const showForm = () => {
         //début validation avant l'envoi des données au serveur
         //regEx
         const regExNameCity = (value) => {
-            return /^[A-Za-z]{3,10}$/.test(value);
+            return /^[A-Za-zÀ-ÿ\s-]+[A-Za-zÀ-ÿ\s]{3,10}$/.test(value);
         }
 
         const regExAddress = (value) => {
-            return /^[0-9A-Za-z\s]{5,40}$/.test(value);
+            return /^[0-9A-Za-zÀ-ÿ\s']{5,40}$/.test(value);
         }
 
         const regExEmail = (value) => {
